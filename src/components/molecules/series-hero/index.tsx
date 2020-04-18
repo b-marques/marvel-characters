@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import IconButton from '@material-ui/core/IconButton'
 import NavigateBefore from '@material-ui/icons/NavigateBefore'
@@ -17,6 +17,12 @@ const SeriesHero = (props: SeriesHeroProps) => {
   const { className = '', image, heroName } = props
   const classProps: string = `${styles.hero} ${className}`
   const history = useHistory()
+
+  useEffect(() => {
+    if (history.location.state && history.action === 'POP') {
+      history.push('/')
+    }
+  })
 
   const handleClick = () => {
     history.push('/')
