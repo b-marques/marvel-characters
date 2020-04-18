@@ -1,0 +1,18 @@
+.navbar {
+  height: 56px;
+}
+
+.content {
+  display: flex;
+  max-width: 1200px;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    height: 64px;
+  }
+}
