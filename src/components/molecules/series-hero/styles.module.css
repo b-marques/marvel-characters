@@ -1,0 +1,26 @@
+.hero {
+  min-height: 30vh;
+  width: 100%;
+  background-color: var(--primary);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.navigateBefore {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  color: var(--primary);
+  background-color: var(--on-primary);
+}
+
+.navigateBefore:hover {
+  background-color: var(--on-primary);
+}
+
+.text {
+  text-align: center;
+  padding: 8px;
+}
