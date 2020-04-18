@@ -12,8 +12,7 @@
 
 .image {
   background-color: var(--primary-variant2);
-  min-height: 100px;
-  width: 100%;
+  min-height: 6.25rem;
 }
 
 .content {
@@ -26,4 +25,6 @@
 .name {
   text-align: center;
   color: var(--secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

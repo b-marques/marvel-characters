@@ -1,27 +1,50 @@
-import React from "react";
+import React from 'react'
 
-import Card from "@material-ui/core/Card";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import Typography from "@material-ui/core/Typography";
+import Card from '@material-ui/core/Card'
+import CardMedia from '@material-ui/core/CardMedia'
+import CardContent from '@material-ui/core/CardContent'
+import CardActionArea from '@material-ui/core/CardActionArea'
+import Typography from '@material-ui/core/Typography'
 
-import styles from "./styles.module.css";
+import styles from './styles.module.css'
 
-import { Character } from "src/types/character";
+import { Character } from 'src/types/character'
+import { useHistory, useLocation } from 'react-router-dom'
 
 type CharacterCardProps = {
-  className?: string;
-  character: Character;
-};
+  className?: string
+  character: Character
+}
 
 const CharacterCard = (props: CharacterCardProps) => {
-  const { className = "", character } = props;
-  const classProps = `${styles.card} ${className}`;
+  const { className = '', character } = props
+  const classProps = `${styles.card} ${className}`
+
+  let element: any = null
+  const history = useHistory()
+  const location = useLocation()
+  const onClick = () => {
+    const { top, right, bottom, left, width, height } = element.getBoundingClientRect()
+
+    history.push({
+      pathname: `/${character.name}/series`,
+      state: {
+        background: location,
+        meta: {
+          from: { top, right, bottom, left, width, height },
+        },
+      },
+    })
+  }
 
   return (
-    <Card component="li" className={classProps}>
-      <CardActionArea className={styles.actionArea}>
+    <Card
+      component="li"
+      className={classProps}
+      ref={el => {
+        element = el
+      }}>
+      <CardActionArea className={styles.actionArea} onClick={onClick}>
         <CardMedia
           className={styles.image}
           image={character.image}
@@ -34,7 +57,7 @@ const CharacterCard = (props: CharacterCardProps) => {
         </CardContent>
       </CardActionArea>
     </Card>
-  );
-};
+  )
+}
 
-export default CharacterCard;
+export default CharacterCard
