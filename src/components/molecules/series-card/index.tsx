@@ -1,29 +1,29 @@
-import React, { useState } from "react";
-import Card from "@material-ui/core/Card";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import Collapse from "@material-ui/core/Collapse";
+import React, { useState } from 'react'
+import Card from '@material-ui/core/Card'
+import CardMedia from '@material-ui/core/CardMedia'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+import IconButton from '@material-ui/core/IconButton'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import Collapse from '@material-ui/core/Collapse'
 
-import styles from "./styles.module.css";
+import styles from './styles.module.css'
 
-import { Series } from "src/types/series";
+import { Series } from 'src/types/series'
 
 type SeriesCardProps = {
-  className?: string;
-  series: Series;
-};
+  className?: string
+  series: Series
+}
 
 const SeriesCard = (props: SeriesCardProps) => {
-  const { className = "", series } = props;
-  const classProps: string = `${className}`;
-  const [isExpanded, setIsExpanded] = useState(false);
+  const { className = '', series } = props
+  const classProps: string = `${className}`
+  const [isExpanded, setIsExpanded] = useState(false)
 
   const handleExpand = () => {
-    setIsExpanded(!isExpanded);
-  };
+    setIsExpanded(!isExpanded)
+  }
 
   return (
     <Card component="li" className={classProps}>
@@ -37,11 +37,10 @@ const SeriesCard = (props: SeriesCardProps) => {
           {series.title}
         </Typography>
         <IconButton
-          className={`${styles.expand} ${isExpanded ? styles.onExpand : ""}`}
+          className={`${styles.expand} ${isExpanded ? styles.onExpand : ''}`}
           aria-expanded={isExpanded}
           aria-label="Mostrar mais"
-          onClick={handleExpand}
-        >
+          onClick={handleExpand}>
           <ExpandMoreIcon />
         </IconButton>
       </div>
@@ -51,7 +50,7 @@ const SeriesCard = (props: SeriesCardProps) => {
         </CardContent>
       </Collapse>
     </Card>
-  );
-};
+  )
+}
 
-export default SeriesCard;
+export default SeriesCard

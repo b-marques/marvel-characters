@@ -1,39 +1,43 @@
-import React from "react";
+import React from 'react'
 
-import IconButton from "@material-ui/core/IconButton";
-import NavigateBefore from "@material-ui/icons/NavigateBefore";
-import Typography from "@material-ui/core/Typography";
+import IconButton from '@material-ui/core/IconButton'
+import NavigateBefore from '@material-ui/icons/NavigateBefore'
+import Typography from '@material-ui/core/Typography'
 
-import styles from "./styles.module.css";
+import styles from './styles.module.css'
+import { useHistory } from 'react-router-dom'
 
 type SeriesHeroProps = {
-  className?: string;
-  image: string;
-  heroName: string;
-};
+  className?: string
+  image: string
+  heroName: string
+}
 
 const SeriesHero = (props: SeriesHeroProps) => {
-  const { className = "", image, heroName } = props;
-  const classProps: string = `${styles.hero} ${className}`;
+  const { className = '', image, heroName } = props
+  const classProps: string = `${styles.hero} ${className}`
+  const history = useHistory()
+
+  const handleClick = () => {
+    history.push('/')
+  }
 
   return (
     <>
       <div
         className={classProps}
         style={{ backgroundImage: `url(${image})` }}
-        aria-label="Imagem do personagem"
-      >
-        <IconButton className={styles.navigateBefore}>
+        aria-label="Imagem do personagem">
+        <IconButton className={styles.navigateBefore} onClick={handleClick}>
           <NavigateBefore />
         </IconButton>
       </div>
       <Typography
         className={styles.text}
         variant="h5"
-        component="h1"
-      >{`Estas são as séries nas quais ${heroName} se encontra.`}</Typography>
+        component="h1">{`Estas são as séries nas quais ${heroName} se encontra.`}</Typography>
     </>
-  );
-};
+  )
+}
 
-export default SeriesHero;
+export default SeriesHero
