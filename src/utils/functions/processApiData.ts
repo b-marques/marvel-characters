@@ -3,6 +3,7 @@ export const processCharactersApiResult = (data: any) => {
     return {
       id: item.id,
       name: item.name,
+      description: item.description,
       image: `${item.thumbnail.path}.${item.thumbnail.extension}`,
       series: [],
     }
