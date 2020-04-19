@@ -12,6 +12,8 @@ Adicionar tratamento para lista vazia de séries.
 
 Melhorar animações de saída da página de séries.
 
+Animação imagem carregando.
+
 ### Observações:
 
 Uso de atomic design.

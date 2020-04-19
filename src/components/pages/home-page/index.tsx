@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import { RootState } from 'src/store'
@@ -9,13 +9,14 @@ import CharacterCardList from 'src/components/organisms/character-card-list'
 import Loader from 'src/components/atoms/loader'
 import Error from 'src/components/atoms/error'
 
-const search = (character: string) => {
-  console.log(character)
-}
-
 const HomePage = () => {
-  const fetch = useCharactersFetch()
+  const [nameStartsWith, setNameStartsWith] = useState('')
+  const fetch = useCharactersFetch(nameStartsWith)
   const characters = useSelector((state: RootState) => state.characters)
+
+  const search = (character: string) => {
+    setNameStartsWith(character)
+  }
 
   return (
     <>

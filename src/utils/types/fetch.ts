@@ -1,3 +1,7 @@
+type FetchInit = {
+  status: 'init'
+}
+
 type FetchLoading = {
   status: 'loading'
 }
@@ -11,4 +15,4 @@ type FetchError = {
   error: Error
 }
 
-export type Fetch = FetchLoading | FetchLoaded | FetchError
+export type Fetch = FetchInit | FetchLoading | FetchLoaded | FetchError
