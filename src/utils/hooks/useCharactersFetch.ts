@@ -8,21 +8,23 @@ import { processCharactersApiResult } from 'src/utils/functions/processApiData'
 
 const API_URL = process.env.REACT_APP_API_URL
 
-export const useCharactersFetch = () => {
-  const dispatch = useDispatch()
+export const useCharactersFetch = (nameStartsWith: string) => {
   const [result, setResult] = useState<Fetch>({
-    status: 'loading',
+    status: 'init',
   })
+  const dispatch = useDispatch()
+  const queryNameStartsWith = nameStartsWith === '' ? '' : `nameStartsWith=${nameStartsWith}`
 
   useEffect(() => {
-    fetch(`${API_URL}/characters?limit=48&${generateApiKey()}`)
+    setResult({ status: 'loading' })
+    fetch(`${API_URL}/characters?${queryNameStartsWith}&limit=48&${generateApiKey()}`)
       .then(response => response.json())
       .then(response => {
         dispatch(fetchCharacters(processCharactersApiResult(response.data)))
         setResult({ status: 'loaded' })
       })
       .catch(error => setResult({ status: 'error', error }))
-  }, [dispatch])
+  }, [dispatch, queryNameStartsWith])
 
   return result
 }
