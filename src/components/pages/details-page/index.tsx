@@ -1,7 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { RootState } from 'src/store'
+
+import styles from './styles.module.css'
 
 import DetailsTemplate from 'src/components/templates/details-template'
 import SeriesCardList from 'src/components/organisms/series-card-list'
@@ -10,17 +12,22 @@ import { useSeriesFetch } from 'src/utils/hooks/useSeriesFetch'
 import Loader from 'src/components/atoms/loader'
 import Error from 'src/components/atoms/error'
 
-const DetailsPage = () => {
-  const history = useHistory()
-  const fetch = useSeriesFetch(history.location.state)
-  const character = (history.location.state as any)?.character
+type DetailsPageParams = {
+  characterId: string
+}
 
-  const series = useSelector((state: RootState) => [
-    ...state.characters.find(e => e.id === character.id)!.series,
-  ])
+const DetailsPage = () => {
+  const params = useParams<DetailsPageParams>()
+  const characterId = parseInt(params.characterId)
+  const character = useSelector((state: RootState) =>
+    state.characters.find(e => e.id === characterId),
+  )
+  const fetch = useSeriesFetch(character)
+
+  if (!character) return <Error />
 
   return (
-    <>
+    <div className={styles.page}>
       {fetch.status === 'loading' && (
         <>
           <DetailsTemplate
@@ -33,11 +40,11 @@ const DetailsPage = () => {
       {fetch.status === 'loaded' && (
         <DetailsTemplate
           seriesHero={<DetailsHero character={character} />}
-          seriesCardList={<SeriesCardList seriesArray={series} />}
+          seriesCardList={<SeriesCardList seriesArray={character.series} />}
         />
       )}
       {fetch.status === 'error' && <Error />}
-    </>
+    </div>
   )
 }
 

@@ -5,24 +5,25 @@ import { fetchCharacterSeries } from 'src/store/character/actions'
 import { Fetch } from 'src/utils/types/fetch'
 import { generateApiKey } from 'src/utils/functions/generateApiKey'
 import { processSeriesApiResult } from 'src/utils/functions/processApiData'
+import { Character } from 'src/store/character/types'
 
 const API_URL = process.env.REACT_APP_API_URL
 
-export const useSeriesFetch = (state: any) => {
-  const characterId = state.character.id
+export const useSeriesFetch = (character: Character | undefined) => {
   const dispatch = useDispatch()
   const [result, setResult] = useState<Fetch>({
-    status: 'loading',
+    status: 'init',
   })
 
   useEffect(() => {
     let mounted = true
-    if (state) {
-      fetch(`${API_URL}/characters/${characterId}/series?limit=20&${generateApiKey()}`)
+    if (character) {
+      setResult({ status: 'loading' })
+      fetch(`${API_URL}/characters/${character.id}/series?limit=20&${generateApiKey()}`)
         .then(response => response.json())
         .then(response => {
           if (mounted) {
-            dispatch(fetchCharacterSeries(characterId, processSeriesApiResult(response.data)))
+            dispatch(fetchCharacterSeries(character.id, processSeriesApiResult(response.data)))
             setResult({ status: 'loaded' })
           }
         })
@@ -31,7 +32,7 @@ export const useSeriesFetch = (state: any) => {
     return () => {
       mounted = false
     }
-  }, [state, characterId, dispatch])
+  }, [character, dispatch])
 
   return result
 }
