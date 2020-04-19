@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './styles.module.css'
 
-import { Character } from 'src/types/character'
+import { Character } from 'src/utils/types/character'
 import CharacterCard from 'src/components/molecules/character-card'
 
 type CharacterCardListProps = {

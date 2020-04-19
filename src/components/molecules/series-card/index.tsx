@@ -9,7 +9,7 @@ import Collapse from '@material-ui/core/Collapse'
 
 import styles from './styles.module.css'
 
-import { Series } from 'src/types/series'
+import { Series } from 'src/utils/types/series'
 
 type SeriesCardProps = {
   className?: string
