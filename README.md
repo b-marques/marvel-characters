@@ -2,7 +2,15 @@
 
 ### ToDO:
 
-Melhorar animações de saída da página de séries
+Implementar redux.
+
+Implementar formulário de edição de character.
+
+Implementar infinite scroll.
+
+Adicionar tratamento para lista vazia de séries.
+
+Melhorar animações de saída da página de séries.
 
 ### Observações:
 
