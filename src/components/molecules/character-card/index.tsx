@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography'
 
 import styles from './styles.module.css'
 
-import { Character } from 'src/types/character'
+import { Character } from 'src/utils/types/character'
 import { useHistory, useLocation } from 'react-router-dom'
 
 type CharacterCardProps = {
@@ -33,6 +33,7 @@ const CharacterCard = (props: CharacterCardProps) => {
         meta: {
           from: { top, right, bottom, left, width, height },
         },
+        character: character,
       },
     })
   }
