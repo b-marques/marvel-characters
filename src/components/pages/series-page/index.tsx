@@ -7,6 +7,7 @@ import SeriesHero from 'src/components/molecules/series-hero'
 import { useSeriesFetch } from 'src/utils/hooks/useSeriesFetch'
 import { Character } from 'src/utils/types/character'
 import Loader from 'src/components/atoms/loader'
+import Error from 'src/components/atoms/error'
 
 const SeriesPage = () => {
   const history = useHistory()
@@ -40,7 +41,7 @@ const SeriesPage = () => {
           seriesCardList={<SeriesCardList seriesArray={fetch.payload} />}
         />
       )}
-      {fetch.status === 'error' && <div>Something wrong happened</div>}
+      {fetch.status === 'error' && <Error />}
     </>
   )
 }

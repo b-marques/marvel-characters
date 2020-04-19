@@ -5,6 +5,7 @@ import HomeTemplate from 'src/components/templates/home-template'
 import CharacterCardList from 'src/components/organisms/character-card-list'
 import { useCharactersFetch } from 'src/utils/hooks/useCharactersFetch'
 import Loader from 'src/components/atoms/loader'
+import Error from 'src/components/atoms/error'
 
 const search = (character: string) => {
   console.log(character)
@@ -15,19 +16,12 @@ const HomePage = () => {
 
   return (
     <>
-      {fetch.status === 'loading' && (
-        <>
-          <SearchBar search={search} />
-          <Loader />
-        </>
-      )}
+      <SearchBar search={search} />
+      {fetch.status === 'loading' && <Loader />}
       {fetch.status === 'loaded' && (
-        <>
-          <SearchBar search={search} />
-          <HomeTemplate charactersCardList={<CharacterCardList characters={fetch.payload} />} />
-        </>
+        <HomeTemplate charactersCardList={<CharacterCardList characters={fetch.payload} />} />
       )}
-      {fetch.status === 'error' && <div>Something wrong happened</div>}
+      {fetch.status === 'error' && <Error />}
     </>
   )
 }
