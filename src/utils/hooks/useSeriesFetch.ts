@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Fetch } from 'src/utils/types/fetch'
-import { Series } from 'src/utils/types/series'
+import { Series } from 'src/store/series/types'
 import { generateApiKey } from 'src/utils/functions/generateApiKey'
 import { processSeriesApiResult } from 'src/utils/functions/processApiData'
 
