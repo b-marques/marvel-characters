@@ -1,4 +1,5 @@
 .content {
+  align-self: stretch;
   display: grid;
   grid-gap: 0.3rem;
 }
