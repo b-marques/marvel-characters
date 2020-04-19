@@ -17,7 +17,7 @@ export const useSeriesFetch = (character: Character | undefined) => {
 
   useEffect(() => {
     let mounted = true
-    if (character) {
+    if (character && character.series.length === 0) {
       setResult({ status: 'loading' })
       fetch(`${API_URL}/characters/${character.id}/series?limit=20&${generateApiKey()}`)
         .then(response => response.json())
@@ -28,6 +28,8 @@ export const useSeriesFetch = (character: Character | undefined) => {
           }
         })
         .catch(error => setResult({ status: 'error', error }))
+    } else {
+      setResult({ status: 'loaded' })
     }
     return () => {
       mounted = false
