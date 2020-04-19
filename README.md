@@ -8,6 +8,10 @@ Implementar formulário de edição de character.
 
 Implementar infinite scroll.
 
+Search bar para redux
+
+Estados de fetch para redux?
+
 Adicionar tratamento para lista vazia de séries.
 
 Melhorar animações de saída da página de séries.
