@@ -19,7 +19,7 @@ const DetailsHero = (props: DetailsHeroProps) => {
   const history = useHistory()
 
   const handleClick = () => {
-    history.goBack()
+    history.push('/')
   }
 
   return (

@@ -18,6 +18,8 @@ Melhorar animações de saída da página de séries.
 
 Animação imagem carregando.
 
+Css transisições inutilzadas? styles/transitions
+
 ### Observações:
 
 Uso de atomic design.
