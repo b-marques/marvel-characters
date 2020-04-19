@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { RootState } from 'src/store'
 
-import SeriesTemplate from 'src/components/templates/series-template'
+import DetailsTemplate from 'src/components/templates/details-template'
 import SeriesCardList from 'src/components/organisms/series-card-list'
 import DetailsHero from 'src/components/molecules/details-hero'
 import { useSeriesFetch } from 'src/utils/hooks/useSeriesFetch'
@@ -23,7 +23,7 @@ const DetailsPage = () => {
     <>
       {fetch.status === 'loading' && (
         <>
-          <SeriesTemplate
+          <DetailsTemplate
             seriesHero={<DetailsHero character={character} />}
             seriesCardList={<SeriesCardList seriesArray={[]} />}
           />
@@ -31,7 +31,7 @@ const DetailsPage = () => {
         </>
       )}
       {fetch.status === 'loaded' && (
-        <SeriesTemplate
+        <DetailsTemplate
           seriesHero={<DetailsHero character={character} />}
           seriesCardList={<SeriesCardList seriesArray={series} />}
         />
