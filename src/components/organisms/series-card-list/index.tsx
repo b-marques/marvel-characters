@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './styles.module.css'
 
-import { Series } from 'src/store/series/types'
+import { Series } from 'src/store/character/types'
 import SeriesCard from 'src/components/molecules/series-card'
 
 type SeriesCardListProps = {
