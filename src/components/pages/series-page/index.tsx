@@ -1,28 +1,23 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { RootState } from 'src/store'
 
 import SeriesTemplate from 'src/components/templates/series-template'
 import SeriesCardList from 'src/components/organisms/series-card-list'
 import SeriesHero from 'src/components/molecules/series-hero'
 import { useSeriesFetch } from 'src/utils/hooks/useSeriesFetch'
-import { Character } from 'src/utils/types/character'
 import Loader from 'src/components/atoms/loader'
 import Error from 'src/components/atoms/error'
 
 const SeriesPage = () => {
   const history = useHistory()
-
-  useEffect(() => {
-    if (history.action === 'POP') {
-      history.push('/')
-    }
-  })
-
   const fetch = useSeriesFetch(history.location.state)
+  const character = (history.location.state as any)?.character
 
-  if (!history.location.state) return null
-
-  const character = (history.location.state as any).character as Character
+  const series = useSelector((state: RootState) => [
+    ...state.characters.find(e => e.id === character.id)!.series,
+  ])
 
   return (
     <>
@@ -38,7 +33,7 @@ const SeriesPage = () => {
       {fetch.status === 'loaded' && (
         <SeriesTemplate
           seriesHero={<SeriesHero character={character} />}
-          seriesCardList={<SeriesCardList seriesArray={fetch.payload} />}
+          seriesCardList={<SeriesCardList seriesArray={series} />}
         />
       )}
       {fetch.status === 'error' && <Error />}

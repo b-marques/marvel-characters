@@ -4,7 +4,7 @@ export const processCharactersApiResult = (data: any) => {
       id: item.id,
       name: item.name,
       image: `${item.thumbnail.path}.${item.thumbnail.extension}`,
-      series: item.series.items,
+      series: [],
     }
   })
 }

@@ -1,14 +1,9 @@
-type FetchInit = {
-  status: 'init'
-}
-
 type FetchLoading = {
   status: 'loading'
 }
 
-type FetchLoaded<T> = {
+type FetchLoaded = {
   status: 'loaded'
-  payload: T
 }
 
 type FetchError = {
@@ -16,4 +11,4 @@ type FetchError = {
   error: Error
 }
 
-export type Fetch<T> = FetchInit | FetchLoading | FetchLoaded<T> | FetchError
+export type Fetch = FetchLoading | FetchLoaded | FetchError
