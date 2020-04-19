@@ -1,6 +1,7 @@
 .card {
   display: flex;
   color: var(--primary);
+  max-height: 250px;
 }
 
 .actionArea {
