@@ -5,7 +5,7 @@ import SeriesTemplate from 'src/components/templates/series-template'
 import SeriesCardList from 'src/components/organisms/series-card-list'
 import SeriesHero from 'src/components/molecules/series-hero'
 import { useSeriesFetch } from 'src/utils/hooks/useSeriesFetch'
-import { Character } from 'src/utils/types/character'
+import { Character } from 'src/store/character/types'
 import Loader from 'src/components/atoms/loader'
 import Error from 'src/components/atoms/error'
 

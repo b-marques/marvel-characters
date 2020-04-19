@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Fetch } from 'src/utils/types/fetch'
-import { Character } from 'src/utils/types/character'
+import { Character } from 'src/store/character/types'
 import { generateApiKey } from 'src/utils/functions/generateApiKey'
 import { processCharactersApiResult } from 'src/utils/functions/processApiData'
 

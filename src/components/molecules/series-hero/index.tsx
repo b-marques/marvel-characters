@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography'
 
 import styles from './styles.module.css'
 import { useHistory } from 'react-router-dom'
-import { Character } from 'src/utils/types/character'
+import { Character } from 'src/store/character/types'
 
 type SeriesHeroProps = {
   className?: string

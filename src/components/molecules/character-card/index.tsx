@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography'
 
 import styles from './styles.module.css'
 
-import { Character } from 'src/utils/types/character'
+import { Character } from 'src/store/character/types'
 import { useHistory, useLocation } from 'react-router-dom'
 
 type CharacterCardProps = {
