@@ -8,7 +8,7 @@ import styles from './App.module.css'
 import transition from 'src/styles/transitions/appear.module.css'
 
 import HomePage from 'src/components/pages/home-page'
-import SeriesPage from 'src/components/pages/series-page'
+import DetailsPage from 'src/components/pages/details-page'
 
 class CSSTransition extends OriginalCSSTransition {
   onEntered = () => {}
@@ -34,11 +34,11 @@ const App = () => {
         <CSSTransition key={location.key} timeout={200} classNames={transition}>
           <Switch location={location}>
             <Route
-              path="/:character/series"
+              path="/:character/details"
               render={() =>
                 history.action === 'PUSH' ? (
                   <div className={styles.modal} style={position}>
-                    <SeriesPage />
+                    <DetailsPage />
                   </div>
                 ) : (
                   <Redirect to="/" />

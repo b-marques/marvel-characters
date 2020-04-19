@@ -8,12 +8,12 @@ import styles from './styles.module.css'
 import { useHistory } from 'react-router-dom'
 import { Character } from 'src/store/character/types'
 
-type SeriesHeroProps = {
+type DetailsHeroProps = {
   className?: string
   character: Character
 }
 
-const SeriesHero = (props: SeriesHeroProps) => {
+const DetailsHero = (props: DetailsHeroProps) => {
   const { className = '', character } = props
   const classProps: string = `${styles.hero} ${className}`
   const history = useHistory()
@@ -32,12 +32,28 @@ const SeriesHero = (props: SeriesHeroProps) => {
           <NavigateBefore />
         </IconButton>
       </div>
-      <Typography
-        className={styles.text}
-        variant="h5"
-        component="h1">{`Estas são as séries nas quais ${character.name} se encontra.`}</Typography>
+      <div style={{ display: 'flex' }}>
+        <Typography className={styles.detailTitle} variant="subtitle1" component="h1">
+          Nome:
+        </Typography>
+        <Typography className={styles.detailInfo} variant="subtitle1" component="h1">
+          {character.name}
+        </Typography>
+      </div>
+      {character.description !== '' && (
+        <div style={{ display: 'flex' }}>
+          <Typography className={styles.detailTitle} variant="body2" component="h1">
+            Descrição:
+          </Typography>
+          <Typography className={styles.detailInfo} variant="body2" component="h1">
+            {character.description}
+          </Typography>
+        </div>
+      )}
+
+      <Typography className={styles.text} variant="body2" component="h1">{`Séries:`}</Typography>
     </>
   )
 }
 
-export default SeriesHero
+export default DetailsHero

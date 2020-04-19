@@ -5,12 +5,12 @@ import { RootState } from 'src/store'
 
 import SeriesTemplate from 'src/components/templates/series-template'
 import SeriesCardList from 'src/components/organisms/series-card-list'
-import SeriesHero from 'src/components/molecules/series-hero'
+import DetailsHero from 'src/components/molecules/details-hero'
 import { useSeriesFetch } from 'src/utils/hooks/useSeriesFetch'
 import Loader from 'src/components/atoms/loader'
 import Error from 'src/components/atoms/error'
 
-const SeriesPage = () => {
+const DetailsPage = () => {
   const history = useHistory()
   const fetch = useSeriesFetch(history.location.state)
   const character = (history.location.state as any)?.character
@@ -24,7 +24,7 @@ const SeriesPage = () => {
       {fetch.status === 'loading' && (
         <>
           <SeriesTemplate
-            seriesHero={<SeriesHero character={character} />}
+            seriesHero={<DetailsHero character={character} />}
             seriesCardList={<SeriesCardList seriesArray={[]} />}
           />
           <Loader />
@@ -32,7 +32,7 @@ const SeriesPage = () => {
       )}
       {fetch.status === 'loaded' && (
         <SeriesTemplate
-          seriesHero={<SeriesHero character={character} />}
+          seriesHero={<DetailsHero character={character} />}
           seriesCardList={<SeriesCardList seriesArray={series} />}
         />
       )}
@@ -41,4 +41,4 @@ const SeriesPage = () => {
   )
 }
 
-export default SeriesPage
+export default DetailsPage

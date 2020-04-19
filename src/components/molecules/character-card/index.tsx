@@ -27,7 +27,7 @@ const CharacterCard = (props: CharacterCardProps) => {
     const { top, right, bottom, left, width, height } = element.getBoundingClientRect()
 
     history.push({
-      pathname: `/${character.name}/series`,
+      pathname: `/${character.name}/details`,
       state: {
         background: location,
         meta: {
