@@ -8,7 +8,7 @@ const Loader = () => {
   return (
     <div className={classProps}>
       <Typography component="h1" variant="h5">
-        Loading
+        Carregando
         <span className={styles.dot}>.</span>
         <span className={styles.dot}>.</span>
         <span className={styles.dot}>.</span>
