@@ -1,5 +1,6 @@
 import React from 'react'
-import { Switch, Route, useLocation } from 'react-router-dom'
+
+import { Switch, Route, useLocation, useHistory, Redirect } from 'react-router-dom'
 import { CSSTransition as OriginalCSSTransition, TransitionGroup } from 'react-transition-group'
 
 import './styles/styles.css'
@@ -15,6 +16,7 @@ class CSSTransition extends OriginalCSSTransition {
 
 const App = () => {
   const location = useLocation()
+  const history = useHistory()
 
   const background = location.state && (location.state as any).background
   let position = {}
@@ -31,11 +33,17 @@ const App = () => {
       <TransitionGroup component={null}>
         <CSSTransition key={location.key} timeout={200} classNames={transition}>
           <Switch location={location}>
-            <Route path="/:character/series">
-              <div className={styles.modal} style={position}>
-                <SeriesPage />
-              </div>
-            </Route>
+            <Route
+              path="/:character/series"
+              render={() =>
+                history.action === 'PUSH' ? (
+                  <div className={styles.modal} style={position}>
+                    <SeriesPage />
+                  </div>
+                ) : (
+                  <Redirect to="/" />
+                )
+              }></Route>
           </Switch>
         </CSSTransition>
       </TransitionGroup>
