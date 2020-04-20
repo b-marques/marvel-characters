@@ -21,6 +21,18 @@
   background-color: var(--on-primary);
 }
 
+.editAttributes {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  color: var(--primary);
+  background-color: var(--on-primary);
+}
+
+.editAttributes:hover {
+  background-color: var(--on-primary);
+}
+
 .detailTitle {
   flex-grow: 1;
   text-align: left;

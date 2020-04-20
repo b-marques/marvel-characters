@@ -1,7 +1,8 @@
 import React from 'react'
-
+import { slugify } from 'voca'
 import IconButton from '@material-ui/core/IconButton'
 import NavigateBefore from '@material-ui/icons/NavigateBefore'
+import Edit from '@material-ui/icons/Edit'
 import Typography from '@material-ui/core/Typography'
 
 import styles from './styles.module.css'
@@ -18,8 +19,12 @@ const DetailsHero = (props: DetailsHeroProps) => {
   const classProps: string = `${styles.hero} ${className}`
   const history = useHistory()
 
-  const handleClick = () => {
+  const handleNavigateBack = () => {
     history.push('/')
+  }
+
+  const handleEdit = () => {
+    history.push(`/characters/${character.id}/${slugify(character.name)}/edit`)
   }
 
   return (
@@ -28,8 +33,11 @@ const DetailsHero = (props: DetailsHeroProps) => {
         className={classProps}
         style={{ backgroundImage: `url(${character.image})` }}
         aria-label={`Imagem do personagem ${character.name}`}>
-        <IconButton className={styles.navigateBefore} onClick={handleClick}>
+        <IconButton className={styles.navigateBefore} onClick={handleNavigateBack}>
           <NavigateBefore />
+        </IconButton>
+        <IconButton className={styles.editAttributes} onClick={handleEdit}>
+          <Edit />
         </IconButton>
       </div>
       <div style={{ display: 'flex' }}>
