@@ -6,6 +6,7 @@ import './styles/styles.css'
 
 import HomePage from 'src/components/pages/home-page'
 import DetailsPage from 'src/components/pages/details-page'
+import EditPage from 'src/components/pages/edit-page'
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" children={<HomePage />} />
         <Route path="/characters/:characterId/:characterName/details" component={DetailsPage} />
-        <Route path="/characters/:characterId/:characterName/edit" children={<button>Hi</button>} />
+        <Route path="/characters/:characterId/:characterName/edit" component={EditPage} />
         <Route path="*" children={<HomePage />} />
       </Switch>
     </>

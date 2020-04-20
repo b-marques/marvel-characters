@@ -1,6 +1,6 @@
 # marvel-characters
 
-### ToDO:
+<!-- ### ToDO:
 
 Implementar redux.
 
@@ -19,6 +19,8 @@ Melhorar animações de saída da página de séries.
 Animação imagem carregando.
 
 Css transisições inutilzadas? styles/transitions
+
+Estudar styled components -->
 
 ### Observações:
 

@@ -2,12 +2,12 @@ import React, { ReactNode } from 'react'
 
 import styles from './styles.module.css'
 
-type SeriesTemplateProps = {
+type DetailsTemplateProps = {
   seriesHero: ReactNode
   seriesCardList: ReactNode
 }
 
-const SeriesTemplate = (props: SeriesTemplateProps) => {
+const DetailsTemplate = (props: DetailsTemplateProps) => {
   const { seriesHero, seriesCardList } = props
   return (
     <>
@@ -17,4 +17,4 @@ const SeriesTemplate = (props: SeriesTemplateProps) => {
   )
 }
 
-export default SeriesTemplate
+export default DetailsTemplate
