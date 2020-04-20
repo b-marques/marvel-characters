@@ -4,13 +4,15 @@ import Typography from '@material-ui/core/Typography'
 import styles from './styles.module.css'
 import { Character } from 'src/store/character/types'
 import SeriesCardList from 'src/components/organisms/series-card-list'
+import Loader from 'src/components/atoms/loader'
 
 type DetailsBodyProps = {
   character: Character
+  isLoading: boolean
 }
 
 const DetailsBody = (props: DetailsBodyProps) => {
-  const { character } = props
+  const { character, isLoading } = props
   return (
     <dl>
       <div style={{ display: 'flex' }}>
@@ -37,9 +39,7 @@ const DetailsBody = (props: DetailsBodyProps) => {
       )}
 
       <Typography className={styles.text} variant="body2" component="dt">{`Séries:`}</Typography>
-      <dd>
-        <SeriesCardList seriesArray={character.series} />
-      </dd>
+      <dd>{isLoading ? <Loader /> : <SeriesCardList seriesArray={character.series} />}</dd>
     </dl>
   )
 }

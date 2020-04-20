@@ -9,7 +9,6 @@ import DetailsTemplate from 'src/components/templates/details-template'
 import DetailsBody from 'src/components/molecules/details-body'
 import DetailsHeader from 'src/components/molecules/details-header'
 import { useSeriesFetch } from 'src/utils/hooks/useSeriesFetch'
-import Loader from 'src/components/atoms/loader'
 import Error from 'src/components/atoms/error'
 
 type DetailsPageParams = {
@@ -29,18 +28,15 @@ const DetailsPage = () => {
   return (
     <div className={styles.page}>
       {fetch.status === 'loading' && (
-        <>
-          <DetailsTemplate
-            detailsHeader={<DetailsHeader character={character} />}
-            detailsBody={<DetailsBody character={character} />}
-          />
-          <Loader />
-        </>
+        <DetailsTemplate
+          detailsHeader={<DetailsHeader character={character} />}
+          detailsBody={<DetailsBody isLoading={true} character={character} />}
+        />
       )}
       {fetch.status === 'loaded' && (
         <DetailsTemplate
           detailsHeader={<DetailsHeader character={character} />}
-          detailsBody={<DetailsBody character={character} />}
+          detailsBody={<DetailsBody isLoading={false} character={character} />}
         />
       )}
       {fetch.status === 'error' && <Error />}
