@@ -14,21 +14,19 @@ E executar `npm install` e `npm start`
 
 <!-- ### ToDO:
 
-Implementar redux.
+Implementar mensagem sucesso formulário de edição de character.
 
-Implementar formulário de edição de character.
+Adicionar tratamento para lista vazia de séries/personagems.
 
 Implementar infinite scroll.
-
-Search bar para redux
-
-Estados de fetch para redux?
-
-Adicionar tratamento para lista vazia de séries.
 
 Melhorar animações de saída da página de séries.
 
 Animação imagem carregando.
+
+? Search bar para redux
+
+? Estados de fetch para redux
 
 Css transisições inutilzadas? styles/transitions
 
