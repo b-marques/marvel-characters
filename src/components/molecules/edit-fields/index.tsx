@@ -17,9 +17,9 @@ const EditFields = (props: EditFieldsProps) => {
   const { className = '', character } = props
   const classProps: string = `${styles.fields} ${className}`
   const dispatch = useDispatch()
-  const [description, setDescription] = useState(character.description)
   const [name, setName] = useState(character.name)
   const [image, setImage] = useState(character.image)
+  const [description, setDescription] = useState(character.description)
 
   const onClick = () => {
     dispatch(
@@ -34,7 +34,7 @@ const EditFields = (props: EditFieldsProps) => {
   }
 
   return (
-    <div className={classProps}>
+    <form className={classProps}>
       <TextField
         className={styles.input}
         disabled
@@ -71,7 +71,7 @@ const EditFields = (props: EditFieldsProps) => {
       <Button className={styles.button} onClick={onClick}>
         Salvar
       </Button>
-    </div>
+    </form>
   )
 }
 
