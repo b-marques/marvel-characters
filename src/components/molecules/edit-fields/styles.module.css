@@ -1,0 +1,13 @@
+.fields {
+  display: grid;
+  gap: 25px;
+  padding: 16px 40px;
+}
+
+.input:active {
+  color: var(--primary);
+}
+
+.button {
+  color: var(--primary);
+}
