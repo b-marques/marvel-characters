@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, Redirect } from 'react-router-dom'
 import { RootState } from 'src/store'
 
 import styles from './styles.module.css'
@@ -24,7 +24,7 @@ const DetailsPage = () => {
   )
   const fetch = useSeriesFetch(character)
 
-  if (!character) return <Error />
+  if (!character) return <Redirect to="/" />
 
   return (
     <div className={styles.page}>

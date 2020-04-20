@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 import './styles/styles.css'
 
@@ -12,10 +12,12 @@ const App = () => {
   return (
     <>
       <Switch>
-        <Route exact path="/" children={<HomePage />} />
+        <Route exact path="/" component={HomePage} />
         <Route path="/characters/:characterId/:characterName/details" component={DetailsPage} />
         <Route path="/characters/:characterId/:characterName/edit" component={EditPage} />
-        <Route path="*" children={<HomePage />} />
+        <Route path="*">
+          <Redirect to="/" />
+        </Route>
       </Switch>
     </>
   )

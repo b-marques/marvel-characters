@@ -1,13 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, Redirect } from 'react-router-dom'
 import { RootState } from 'src/store'
 
 import styles from './styles.module.css'
 
 import EditTemplate from 'src/components/templates/edit-template'
 import EditHero from 'src/components/molecules/edit-hero'
-import Error from 'src/components/atoms/error'
 import EditFields from 'src/components/molecules/edit-fields'
 
 type EditPageParams = {
@@ -21,7 +20,7 @@ const EditPage = () => {
     state.characters.find(e => e.id === characterId),
   )
 
-  if (!character) return <Error />
+  if (!character) return <Redirect to="/" />
 
   return (
     <div className={styles.page}>
