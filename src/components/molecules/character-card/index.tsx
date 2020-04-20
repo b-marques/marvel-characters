@@ -28,11 +28,7 @@ const CharacterCard = (props: CharacterCardProps) => {
   return (
     <Card component="li" className={classProps}>
       <CardActionArea className={styles.actionArea} onClick={onClick}>
-        <CardMedia
-          className={styles.image}
-          image={character.image}
-          aria-label={`Imagem personagem ${character.name}`}
-        />
+        <CardMedia className={styles.image} image={character.image} aria-label={`Personagem`} />
         <CardContent className={styles.content}>
           <Typography className={styles.name} variant="caption" component="h2">
             {character.name}

@@ -6,8 +6,8 @@ import { RootState } from 'src/store'
 import styles from './styles.module.css'
 
 import DetailsTemplate from 'src/components/templates/details-template'
-import SeriesCardList from 'src/components/organisms/series-card-list'
-import DetailsHero from 'src/components/molecules/details-hero'
+import DetailsBody from 'src/components/molecules/details-body'
+import DetailsHeader from 'src/components/molecules/details-header'
 import { useSeriesFetch } from 'src/utils/hooks/useSeriesFetch'
 import Loader from 'src/components/atoms/loader'
 import Error from 'src/components/atoms/error'
@@ -31,16 +31,16 @@ const DetailsPage = () => {
       {fetch.status === 'loading' && (
         <>
           <DetailsTemplate
-            seriesHero={<DetailsHero character={character} />}
-            seriesCardList={<SeriesCardList seriesArray={[]} />}
+            detailsHeader={<DetailsHeader character={character} />}
+            detailsBody={<DetailsBody character={character} />}
           />
           <Loader />
         </>
       )}
       {fetch.status === 'loaded' && (
         <DetailsTemplate
-          seriesHero={<DetailsHero character={character} />}
-          seriesCardList={<SeriesCardList seriesArray={character.series} />}
+          detailsHeader={<DetailsHeader character={character} />}
+          detailsBody={<DetailsBody character={character} />}
         />
       )}
       {fetch.status === 'error' && <Error />}

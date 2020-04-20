@@ -34,7 +34,6 @@ const SearchBar = (props: SearchBarProps) => {
             placeholder="Pesquisar personagem..."
             defaultValue={searchString}
             inputProps={{
-              'aria-label': 'pesquisar personagem',
               onKeyPress: event => handleKeyPress(event),
             }}
             onChange={event => setSearchString(event.currentTarget.value)}

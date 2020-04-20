@@ -1,5 +1,8 @@
 .content {
-  flex-grow: 1;
   display: grid;
   grid-gap: 0.3rem;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0.5rem;
+  margin: 0 auto;
 }

@@ -1,18 +1,16 @@
 import React, { ReactNode } from 'react'
 
-import styles from './styles.module.css'
-
 type DetailsTemplateProps = {
-  seriesHero: ReactNode
-  seriesCardList: ReactNode
+  detailsHeader: ReactNode
+  detailsBody: ReactNode
 }
 
 const DetailsTemplate = (props: DetailsTemplateProps) => {
-  const { seriesHero, seriesCardList } = props
+  const { detailsHeader, detailsBody } = props
   return (
     <>
-      {seriesHero}
-      <section className={styles.content}>{seriesCardList}</section>
+      {detailsHeader}
+      {detailsBody}
     </>
   )
 }

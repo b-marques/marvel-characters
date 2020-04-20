@@ -1,4 +1,4 @@
-.hero {
+.header {
   min-height: 30vh;
   width: 100%;
   background-color: var(--primary);
@@ -31,21 +31,4 @@
 
 .editAttributes:hover {
   background-color: var(--on-primary);
-}
-
-.detailTitle {
-  flex-grow: 1;
-  text-align: left;
-  padding: 0 30px 10px;
-  color: var(--secondary-variant2);
-}
-
-.detailInfo {
-  flex-grow: 1;
-  padding: 0 30px 10px 0;
-}
-
-.text {
-  padding: 15px 30px;
-  color: var(--secondary-variant2);
 }
