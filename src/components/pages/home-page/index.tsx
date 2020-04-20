@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import { RootState } from 'src/store'
+import { useQuery } from 'src/utils/hooks/useQuery'
 import { useCharactersFetch } from 'src/utils/hooks/useCharactersFetch'
 import SearchBar from 'src/components/molecules/search-bar'
 import HomeTemplate from 'src/components/templates/home-template'
@@ -10,17 +12,20 @@ import Loader from 'src/components/atoms/loader'
 import Error from 'src/components/atoms/error'
 
 const HomePage = () => {
-  const [nameStartsWith, setNameStartsWith] = useState('')
-  const fetch = useCharactersFetch(nameStartsWith)
+  const query = useQuery()
+  const history = useHistory()
+  const search = query.get('search') !== null ? String(query.get('search')) : ''
+  const reload = query.get('reload') === null || query.get('reload') === 'true'
+  const fetch = useCharactersFetch(search, reload)
   const characters = useSelector((state: RootState) => state.characters)
 
-  const search = (character: string) => {
-    setNameStartsWith(character)
+  const doSearch = (character: string) => {
+    history.push(`/?search=${character}`)
   }
 
   return (
     <>
-      <SearchBar search={search} />
+      <SearchBar doSearch={doSearch} />
       {fetch.status === 'loading' && <Loader />}
       {fetch.status === 'loaded' && (
         <HomeTemplate charactersCardList={<CharacterCardList characters={characters} />} />

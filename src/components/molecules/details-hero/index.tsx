@@ -20,7 +20,7 @@ const DetailsHero = (props: DetailsHeroProps) => {
   const history = useHistory()
 
   const handleNavigateBack = () => {
-    history.push('/')
+    history.push('/?reload=false')
   }
 
   const handleEdit = () => {

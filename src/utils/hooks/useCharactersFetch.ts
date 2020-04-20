@@ -1,7 +1,6 @@
-import { useEffect, useState, useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 
-import { RootState } from 'src/store'
 import { fetchCharacters } from 'src/store/character/actions'
 import { Fetch } from 'src/utils/types/fetch'
 import { generateApiKey } from 'src/utils/functions/generateApiKey'
@@ -9,18 +8,15 @@ import { processCharactersApiResult } from 'src/utils/functions/processApiData'
 
 const API_URL = process.env.REACT_APP_API_URL
 
-export const useCharactersFetch = (nameStartsWith: string) => {
+export const useCharactersFetch = (search: string, reload: boolean) => {
   const [result, setResult] = useState<Fetch>({
     status: 'init',
   })
   const dispatch = useDispatch()
-  const characters = useSelector((state: RootState) => state.characters)
-  const queryRef = useRef('')
-  const queryNameStartsWith = nameStartsWith === '' ? '' : `nameStartsWith=${nameStartsWith}`
 
   useEffect(() => {
-    if (characters.length === 0 || queryRef.current !== queryNameStartsWith) {
-      queryRef.current = queryNameStartsWith
+    if (reload) {
+      const queryNameStartsWith = search ? `nameStartsWith=${search}` : ''
       setResult({ status: 'loading' })
       fetch(`${API_URL}/characters?${queryNameStartsWith}&limit=48&${generateApiKey()}`)
         .then(response => response.json())
@@ -32,7 +28,7 @@ export const useCharactersFetch = (nameStartsWith: string) => {
     } else {
       setResult({ status: 'loaded' })
     }
-  }, [dispatch, characters, queryNameStartsWith])
+  }, [dispatch, search, reload])
 
   return result
 }
