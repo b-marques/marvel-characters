@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { RootState } from 'src/store'
@@ -15,11 +15,12 @@ export const useCharactersFetch = (nameStartsWith: string) => {
   })
   const dispatch = useDispatch()
   const characters = useSelector((state: RootState) => state.characters)
-
+  const queryRef = useRef('')
   const queryNameStartsWith = nameStartsWith === '' ? '' : `nameStartsWith=${nameStartsWith}`
 
   useEffect(() => {
-    if (characters.length === 0) {
+    if (characters.length === 0 || queryRef.current !== queryNameStartsWith) {
+      queryRef.current = queryNameStartsWith
       setResult({ status: 'loading' })
       fetch(`${API_URL}/characters?${queryNameStartsWith}&limit=48&${generateApiKey()}`)
         .then(response => response.json())
