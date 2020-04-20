@@ -1,5 +1,17 @@
 # marvel-characters
 
+## Execução do projeto
+
+Definir um arquivo com nome `env.local`
+
+```
+REACT_APP_API_URL=https://gateway.marvel.com:443/v1/public/
+REACT_APP_API_KEY_PUBLIC={SUA_MARVEL_KEY_PUBLICA}
+REACT_APP_API_KEY_PRIVATE={SUA_MARVEL_KEY_PRIVADA}
+```
+
+E executar `npm install` e `npm start`
+
 <!-- ### ToDO:
 
 Implementar redux.
@@ -22,7 +34,7 @@ Css transisições inutilzadas? styles/transitions
 
 Estudar styled components -->
 
-### Observações:
+## Observações:
 
 Uso de atomic design.
 
