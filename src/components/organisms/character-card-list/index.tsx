@@ -4,6 +4,7 @@ import styles from './styles.module.css'
 
 import { Character } from 'src/store/character/types'
 import CharacterCard from 'src/components/molecules/character-card'
+import { Typography } from '@material-ui/core'
 
 type CharacterCardListProps = {
   className?: string
@@ -16,9 +17,13 @@ const CharacterCardList = (props: CharacterCardListProps) => {
 
   return (
     <ul className={classProps} aria-label="conjunto de cards de personagens">
-      {characters.map(character => (
-        <CharacterCard key={character.id} character={character} />
-      ))}
+      {characters.length ? (
+        characters.map(character => <CharacterCard key={character.id} character={character} />)
+      ) : (
+        <Typography style={{ textAlign: 'center' }} component="li" variant="caption">
+          Nenhum personagem encontrado.
+        </Typography>
+      )}
     </ul>
   )
 }

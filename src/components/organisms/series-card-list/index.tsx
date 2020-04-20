@@ -4,6 +4,7 @@ import styles from './styles.module.css'
 
 import { Series } from 'src/store/character/types'
 import SeriesCard from 'src/components/molecules/series-card'
+import { Typography } from '@material-ui/core'
 
 type SeriesCardListProps = {
   className?: string
@@ -16,9 +17,13 @@ const SeriesCardList = (props: SeriesCardListProps) => {
 
   return (
     <ul className={classProps} aria-label="conjunto de cards de séries">
-      {seriesArray.map(series => (
-        <SeriesCard key={series.id} series={series} />
-      ))}
+      {seriesArray.length ? (
+        seriesArray.map(series => <SeriesCard key={series.id} series={series} />)
+      ) : (
+        <Typography style={{ textAlign: 'center' }} component="li" variant="caption">
+          Nenhuma série encontrada
+        </Typography>
+      )}
     </ul>
   )
 }
