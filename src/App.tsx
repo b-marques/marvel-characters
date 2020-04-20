@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 
 import './styles/styles.css'
 
@@ -10,7 +10,7 @@ import EditPage from 'src/components/pages/edit-page'
 
 const App = () => {
   return (
-    <>
+    <BrowserRouter>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/characters/:characterId/:characterName/details" component={DetailsPage} />
@@ -19,7 +19,7 @@ const App = () => {
           <Redirect to="/" />
         </Route>
       </Switch>
-    </>
+    </BrowserRouter>
   )
 }
 
