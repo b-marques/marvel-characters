@@ -4,6 +4,7 @@ import {
   FETCH_CHARACTERS,
   LOAD_MORE_CHARACTERS,
   FETCH_CHARACTER_SERIES,
+  EDIT_CHARACTER,
   CharacterActionTypes,
 } from './types'
 
@@ -25,5 +26,12 @@ export function fetchCharacterSeries(characterId: number, series: Series[]): Cha
   return {
     type: FETCH_CHARACTER_SERIES,
     payload: { characterId, series },
+  }
+}
+
+export function editCharacter(character: Character): CharacterActionTypes {
+  return {
+    type: EDIT_CHARACTER,
+    payload: character,
   }
 }
