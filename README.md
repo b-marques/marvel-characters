@@ -14,7 +14,7 @@ E executar `npm install` e `npm start`
 
 <!-- ### ToDO:
 
-Implementar mensagem sucesso formulário de edição de character.
+Arrumar layout desktop
 
 Adicionar tratamento para lista vazia de séries/personagems.
 

@@ -16,6 +16,9 @@
   color: var(--secondary);
 }
 
+.fields > div:nth-child(1) input {
+  color: var(--secondary-variant2);
+}
 .button {
   color: var(--primary);
 }
