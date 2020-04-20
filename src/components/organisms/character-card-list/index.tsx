@@ -20,7 +20,7 @@ const CharacterCardList = (props: CharacterCardListProps) => {
       {characters.length ? (
         characters.map(character => <CharacterCard key={character.id} character={character} />)
       ) : (
-        <Typography style={{ textAlign: 'center' }} component="li" variant="caption">
+        <Typography className={styles.noCharacters} component="li" variant="caption">
           Nenhum personagem encontrado.
         </Typography>
       )}

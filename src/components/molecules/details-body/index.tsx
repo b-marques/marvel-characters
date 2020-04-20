@@ -15,7 +15,7 @@ const DetailsBody = (props: DetailsBodyProps) => {
   const { character, isLoading } = props
   return (
     <dl>
-      <div style={{ display: 'flex' }}>
+      <div className={styles.infoGroup}>
         <Typography
           id="label-nome"
           className={styles.detailTitle}
@@ -28,7 +28,7 @@ const DetailsBody = (props: DetailsBodyProps) => {
         </Typography>
       </div>
       {character.description !== '' && (
-        <div style={{ display: 'flex' }}>
+        <div className={styles.infoGroup}>
           <Typography className={styles.detailTitle} variant="body2" component="dt">
             Descrição:
           </Typography>

@@ -20,7 +20,7 @@ const SeriesCardList = (props: SeriesCardListProps) => {
       {seriesArray.length ? (
         seriesArray.map(series => <SeriesCard key={series.id} series={series} />)
       ) : (
-        <Typography style={{ textAlign: 'center' }} component="li" variant="caption">
+        <Typography className={styles.noSeries} component="li" variant="caption">
           Nenhuma série encontrada
         </Typography>
       )}
