@@ -4,8 +4,16 @@
   padding: 16px 40px;
 }
 
-.input:active {
-  color: var(--primary);
+.fields label {
+  color: var(--primary) !important;
+}
+
+.fields > div div:after {
+  border-bottom: 2px solid var(--primary);
+}
+
+.fields input {
+  color: var(--secondary);
 }
 
 .button {

@@ -43,6 +43,7 @@ const EditFields = (props: EditFieldsProps) => {
         defaultValue={character.id}
       />
       <TextField
+        variant="filled"
         className={styles.input}
         id="character-name"
         label="Nome do Personagem"
@@ -50,6 +51,7 @@ const EditFields = (props: EditFieldsProps) => {
         onChange={e => setName(e.target.value)}
       />
       <TextField
+        variant="filled"
         className={styles.input}
         id="character-image"
         label="Imagem do Personagem"
@@ -57,6 +59,7 @@ const EditFields = (props: EditFieldsProps) => {
         onChange={e => setImage(e.target.value)}
       />
       <TextField
+        variant="filled"
         multiline
         rows={4}
         className={styles.input}
