@@ -49,6 +49,9 @@ const EditFields = (props: EditFieldsProps) => {
           className={styles.input}
           disabled
           id="character-id"
+          inputProps={{
+            'data-testid': 'character-id',
+          }}
           label="ID do Personagem"
           defaultValue={character.id}
         />
@@ -56,6 +59,9 @@ const EditFields = (props: EditFieldsProps) => {
           variant="filled"
           className={styles.input}
           id="character-name"
+          inputProps={{
+            'data-testid': 'character-name',
+          }}
           label="Nome do Personagem"
           defaultValue={character.name}
           onChange={e => setName(e.target.value)}
@@ -64,6 +70,9 @@ const EditFields = (props: EditFieldsProps) => {
           variant="filled"
           className={styles.input}
           id="character-image"
+          inputProps={{
+            'data-testid': 'character-image',
+          }}
           label="Imagem do Personagem"
           defaultValue={character.image}
           onChange={e => setImage(e.target.value)}
@@ -74,6 +83,9 @@ const EditFields = (props: EditFieldsProps) => {
           rows={4}
           className={styles.input}
           id="character-description"
+          inputProps={{
+            'data-testid': 'character-description',
+          }}
           label="Descrição do Personagem"
           defaultValue={character.description}
           onChange={e => setDescription(e.target.value)}
@@ -82,8 +94,8 @@ const EditFields = (props: EditFieldsProps) => {
           Salvar
         </Button>
       </form>
-      <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={isOpenDialog}>
-        <DialogTitle id="customized-dialog-title">Salvo com sucesso!</DialogTitle>
+      <Dialog onClose={handleClose} aria-labelledby="save-success-dialog" open={isOpenDialog}>
+        <DialogTitle id="save-success-dialog">Salvo com sucesso!</DialogTitle>
         <DialogActions>
           <Button autoFocus onClick={handleClose} color="primary">
             Ok
