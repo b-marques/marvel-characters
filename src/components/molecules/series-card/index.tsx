@@ -40,6 +40,7 @@ const SeriesCard = (props: SeriesCardProps) => {
           className={`${styles.expand} ${isExpanded ? styles.onExpand : ''}`}
           aria-expanded={isExpanded}
           aria-label="Mostrar mais"
+          data-testid="expand-more-button"
           onClick={handleExpand}>
           <ExpandMoreIcon />
         </IconButton>
