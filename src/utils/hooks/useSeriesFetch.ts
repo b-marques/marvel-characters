@@ -24,7 +24,7 @@ export const useSeriesFetch = (character: Character | undefined) => {
         .get(`${API_URL}characters/${character.id}/series?limit=20&${generateApiKey()}`)
         .then(response => {
           if (mounted) {
-            dispatch(fetchCharacterSeries(character.id, processSeriesApiResult(response.data)))
+            dispatch(fetchCharacterSeries(character.id, processSeriesApiResult(response.data.data)))
             setResult({ status: 'loaded' })
           }
         })
