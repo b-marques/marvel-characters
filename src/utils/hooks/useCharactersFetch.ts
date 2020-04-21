@@ -30,7 +30,6 @@ export const useCharactersFetch = (search: string, reload: boolean) => {
           }
         })
         .catch((error: any) => {
-          console.log(error)
           if (mounted) setResult({ status: 'error', error })
         })
     } else {

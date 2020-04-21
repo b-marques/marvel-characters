@@ -25,7 +25,7 @@ const SearchBar = (props: SearchBarProps) => {
   }
 
   return (
-    <AppBar className={styles.searchBar}>
+    <AppBar data-testid="search-bar" className={styles.searchBar}>
       <Toolbar className={styles.container}>
         <img className={styles.logo} src={logo} alt="Logo Marvel" />
         <div className={styles.searchContainer}>
