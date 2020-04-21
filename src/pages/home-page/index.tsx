@@ -30,7 +30,7 @@ const HomePage = () => {
 
   return (
     <>
-      <SearchBar doSearch={handleDoSearch} />
+      <SearchBar searchTerm={search} doSearch={handleDoSearch} />
       {fetch.status === 'loading' && <Loader />}
       {fetch.status === 'loaded' && (
         <HomeTemplate

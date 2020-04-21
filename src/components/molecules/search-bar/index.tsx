@@ -5,20 +5,17 @@ import InputBase from '@material-ui/core/InputBase'
 import IconButton from '@material-ui/core/IconButton'
 import SearchIcon from '@material-ui/icons/Search'
 
-import { useQuery } from 'src/utils/hooks/useQuery'
 import styles from './styles.module.css'
 import logo from 'src/static/images/logo.svg'
 
 type SearchBarProps = {
   doSearch: (character: string) => void
+  searchTerm: string
 }
 
 const SearchBar = (props: SearchBarProps) => {
-  const { doSearch } = props
-  const query = useQuery()
-  const [searchString, setSearchString] = useState(
-    query.get('search') !== null ? String(query.get('search')) : '',
-  )
+  const { doSearch, searchTerm } = props
+  const [searchString, setSearchString] = useState(searchTerm)
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     if (event.key === 'Enter') doSearch(searchString)
@@ -39,7 +36,8 @@ const SearchBar = (props: SearchBarProps) => {
             onChange={event => setSearchString(event.currentTarget.value)}
           />
           <IconButton
-            aria-label="pesquisar personagem"
+            aria-label="pesquisar"
+            data-testid="search-button"
             onClick={event => {
               event.preventDefault()
               doSearch(searchString)
