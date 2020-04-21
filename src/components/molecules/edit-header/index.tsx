@@ -4,22 +4,17 @@ import IconButton from '@material-ui/core/IconButton'
 import NavigateBefore from '@material-ui/icons/NavigateBefore'
 
 import styles from './styles.module.css'
-import { useHistory } from 'react-router-dom'
 import { Character } from 'src/store/character/types'
 
-type EditHeroProps = {
+type EditHeaderProps = {
   className?: string
   character: Character
+  handleNavigateBack: () => void
 }
 
-const EditHero = (props: EditHeroProps) => {
-  const { className = '', character } = props
+const EditHeader = (props: EditHeaderProps) => {
+  const { className = '', character, handleNavigateBack } = props
   const classProps: string = `${styles.hero} ${className}`
-  const history = useHistory()
-
-  const handleNavigateBack = () => {
-    history.push(`/characters/${character.id}/${character.name}/details`)
-  }
 
   return (
     <div
@@ -29,6 +24,7 @@ const EditHero = (props: EditHeroProps) => {
       <IconButton
         className={styles.navigateBefore}
         onClick={handleNavigateBack}
+        data-testid="navigate-back-button"
         aria-label="voltar para detalhes do personagem">
         <NavigateBefore />
       </IconButton>
@@ -36,4 +32,4 @@ const EditHero = (props: EditHeroProps) => {
   )
 }
 
-export default EditHero
+export default EditHeader
