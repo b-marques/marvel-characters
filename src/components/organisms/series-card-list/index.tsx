@@ -16,7 +16,10 @@ const SeriesCardList = (props: SeriesCardListProps) => {
   const classProps: string = `${styles.content} ${className}`
 
   return (
-    <ul className={classProps} aria-label="conjunto de cards de séries">
+    <ul
+      className={classProps}
+      aria-label="conjunto de cards de séries"
+      data-testid="card-list-series">
       {seriesArray.length ? (
         seriesArray.map(series => <SeriesCard key={series.id} series={series} />)
       ) : (
