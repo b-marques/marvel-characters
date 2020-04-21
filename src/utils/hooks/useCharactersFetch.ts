@@ -22,7 +22,7 @@ export const useCharactersFetch = (search: string, reload: boolean) => {
 
       if (mounted) setResult({ status: 'loading' })
       axios
-        .get(`${API_URL}/characters?${queryNameStartsWith}&limit=48&${generateApiKey()}`)
+        .get(`${API_URL}characters?${queryNameStartsWith}&limit=48&${generateApiKey()}`)
         .then((response: any) => {
           if (mounted) {
             dispatch(fetchCharacters(processCharactersApiResult(response.data.data)))

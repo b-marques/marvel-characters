@@ -21,7 +21,7 @@ export const useSeriesFetch = (character: Character | undefined) => {
     if (character && character.series.length === 0) {
       if (mounted) setResult({ status: 'loading' })
       axios
-        .get(`${API_URL}/characters/${character.id}/series?limit=20&${generateApiKey()}`)
+        .get(`${API_URL}characters/${character.id}/series?limit=20&${generateApiKey()}`)
         .then(response => {
           if (mounted) {
             dispatch(fetchCharacterSeries(character.id, processSeriesApiResult(response.data)))
