@@ -19,7 +19,7 @@ test('should render a card with image and title', async () => {
     <Card
       title={character.name}
       image={character.image}
-      ariaLabel="Personagem"
+      ariaLabel="personagem"
       onClick={() => {}}
     />,
   )
