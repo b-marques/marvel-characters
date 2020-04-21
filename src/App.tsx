@@ -4,9 +4,9 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 
 import 'src/styles/styles.css'
 
-import HomePage from 'src/components/pages/home-page'
-import DetailsPage from 'src/components/pages/details-page'
-import EditPage from 'src/components/pages/edit-page'
+import HomePage from 'src/pages/home-page'
+import DetailsPage from 'src/pages/details-page'
+import EditPage from 'src/pages/edit-page'
 
 const App = () => {
   return (
