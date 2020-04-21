@@ -1,8 +1,8 @@
 import { combineReducers, createStore } from 'redux'
 import throttle from 'lodash/throttle'
 
-import { systemReducer } from './system/reducers'
-import { charactersReducer } from './character/reducers'
+import { systemReducer } from 'src/store/system/reducers'
+import { charactersReducer } from 'src/store/character/reducers'
 import {
   loadStateFromLocalStorage,
   saveStateToLocalStorage,

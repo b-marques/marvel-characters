@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
+import axios from 'axios'
 
 import { fetchCharacterSeries } from 'src/store/character/actions'
 import { Fetch } from 'src/utils/types/fetch'
@@ -18,18 +19,20 @@ export const useSeriesFetch = (character: Character | undefined) => {
   useEffect(() => {
     let mounted = true
     if (character && character.series.length === 0) {
-      setResult({ status: 'loading' })
-      fetch(`${API_URL}/characters/${character.id}/series?limit=20&${generateApiKey()}`)
-        .then(response => response.json())
+      if (mounted) setResult({ status: 'loading' })
+      axios
+        .get(`${API_URL}/characters/${character.id}/series?limit=20&${generateApiKey()}`)
         .then(response => {
           if (mounted) {
             dispatch(fetchCharacterSeries(character.id, processSeriesApiResult(response.data)))
             setResult({ status: 'loaded' })
           }
         })
-        .catch(error => setResult({ status: 'error', error }))
+        .catch(error => {
+          if (mounted) setResult({ status: 'error', error })
+        })
     } else {
-      setResult({ status: 'loaded' })
+      if (mounted) setResult({ status: 'loaded' })
     }
     return () => {
       mounted = false

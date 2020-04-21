@@ -2,7 +2,7 @@ import React from 'react'
 
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 
-import './styles/styles.css'
+import 'src/styles/styles.css'
 
 import HomePage from 'src/components/pages/home-page'
 import DetailsPage from 'src/components/pages/details-page'
