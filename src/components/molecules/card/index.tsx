@@ -1,8 +1,8 @@
 import React from 'react'
 import MUICard from '@material-ui/core/Card'
+import CardActionArea from '@material-ui/core/CardActionArea'
 import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
-import CardActionArea from '@material-ui/core/CardActionArea'
 import Typography from '@material-ui/core/Typography'
 
 import styles from './styles.module.css'
@@ -22,7 +22,13 @@ const Card = (props: CardProps) => {
   return (
     <MUICard component="li" className={classProps}>
       <CardActionArea className={styles.actionArea} onClick={onClick}>
-        <CardMedia className={styles.image} image={image} aria-label={ariaLabel} />
+        <CardMedia
+          className={styles.image}
+          image={image}
+          title={ariaLabel}
+          aria-label={ariaLabel}
+          component="div"
+        />
         <CardContent className={styles.content}>
           <Typography className={styles.name} variant="caption" component="h2">
             {title}
