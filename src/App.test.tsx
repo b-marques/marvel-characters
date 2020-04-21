@@ -25,8 +25,10 @@ test('can render app with redux with defaults', async () => {
 
   expect(mockedAxios.get).toHaveBeenCalledTimes(1)
   expect(screen.getByTestId('cards-container')).toBeTruthy()
-  expect(screen.getByTestId('cards-container')).toContainElement(screen.getByTestId('cards-list'))
-  expect(screen.getByTestId('cards-list').childElementCount).toBe(48)
+  expect(screen.getByTestId('cards-container')).toContainElement(
+    screen.getByTestId('cards-list-characters'),
+  )
+  expect(screen.getByTestId('cards-list-characters').childElementCount).toBe(48)
   expect(screen.getByTestId('search-bar')).toBeTruthy()
 }, 10000)
 
