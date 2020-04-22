@@ -10,17 +10,13 @@ REACT_APP_API_KEY_PUBLIC={SUA_MARVEL_KEY_PUBLICA}
 REACT_APP_API_KEY_PRIVATE={SUA_MARVEL_KEY_PRIVADA}
 ```
 
-E executar `npm install` e `npm start`
+E executar `yarn install` e `yarn start`
 
-<!-- ### ToDO:
-
-Adicionar testes
+### ToDO:
 
 Criar pipeline gitlab
 
 Arrumar detalhes series
-
-Arrumar layout desktop
 
 Implementar infinite scroll.
 
@@ -28,13 +24,7 @@ Melhorar animações de saída da página de séries.
 
 Animação imagem carregando.
 
-? Search bar para redux
-
-? Estados de fetch para redux
-
-Css transisições inutilzadas? styles/transitions
-
-Estudar styled components -->
+<!-- Estudar styled components -->
 
 ## Observações:
 
