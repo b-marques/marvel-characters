@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  align-items: center;
+  background-color: var(--on-primary);
+  color: var(--on-primary);
+}
+
+.img {
+  align-self: stretch;
+  min-width: 20%;
+  min-height: 5rem;
+}
+
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 16px 0 16px 16px;
+  color: var(--secondary);
+}
+
+.expand {
+  color: var(--primary);
+  transform: rotate(0deg);
+  margin-left: auto;
+  transition: transform linear 100ms;
+}
+
+.onExpand {
+  transform: rotate(180deg);
+}
+
+.details {
+  background-color: var(--primary);
+  color: var(--on-primary);
+}

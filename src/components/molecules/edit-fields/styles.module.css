@@ -1,0 +1,33 @@
+.fields {
+  flex-grow: 1;
+  display: grid;
+  gap: 25px;
+  padding: 16px 40px;
+  grid-auto-rows: minmax(50px, max-content);
+  align-self: center;
+}
+
+.fields label {
+  color: var(--primary) !important;
+}
+
+.fields > div div:after {
+  border-bottom: 2px solid var(--primary);
+}
+
+.fields input {
+  color: var(--secondary);
+}
+
+.fields > div:nth-child(1) input {
+  color: var(--secondary-variant2);
+}
+.button {
+  color: var(--primary);
+}
+
+@media (min-width: 768px) {
+  .fields {
+    min-width: 32.5vw;
+  }
+}

@@ -1,0 +1,41 @@
+.header {
+  min-height: 30vh;
+  width: 100%;
+  background-color: var(--primary);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.navigateBefore {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  color: var(--primary);
+  background-color: var(--on-primary);
+}
+
+.navigateBefore:hover {
+  background-color: var(--on-primary);
+}
+
+.editAttributes {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  color: var(--primary);
+  background-color: var(--on-primary);
+}
+
+.editAttributes:hover {
+  background-color: var(--on-primary);
+}
+
+@media (min-width: 768px) {
+  .header {
+    margin-bottom: 0;
+    min-width: 32.5vw;
+  }
+}

@@ -1,0 +1,29 @@
+.card {
+  display: flex;
+  color: var(--primary);
+}
+
+.actionArea {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.image {
+  background-color: var(--primary-variant2);
+  min-height: 6.25rem;
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.name {
+  text-align: center;
+  color: var(--secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

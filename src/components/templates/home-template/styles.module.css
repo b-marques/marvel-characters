@@ -1,0 +1,12 @@
+.content {
+  display: flex;
+  max-width: 100vw;
+  padding: 0.5rem;
+  margin: 70px auto 0;
+}
+
+@media (min-width: 768px) {
+  .content {
+    max-width: 1200px;
+  }
+}

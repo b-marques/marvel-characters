@@ -1,0 +1,21 @@
+:root {
+  /**
+   * Colors
+   */
+  --primary: #ec1d24;
+  --primary-variant1: #c70007;
+  --primary-variant2: #e8686d;
+  --secondary: #080808;
+  --secondary-variant1: #585858;
+  --secondary-variant2: #8a8a8a;
+  --secondary-variant3: #e8e8e8;
+  --on-primary: #f8f8f8;
+  --on-secondary: #f8f8f8;
+
+  /**
+   * Fonts
+   */
+  --base-font-family: sans-serif;
+  --headers-font-family: serif;
+  --base-font-lineheight: 1.5em;
+}
