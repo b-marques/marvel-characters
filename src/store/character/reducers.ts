@@ -30,6 +30,7 @@ export function charactersReducer(
     case EDIT_CHARACTER: {
       let newState = [...state]
       let index = newState.findIndex(item => item.id === action.payload.id)
+      action.payload.series = newState[index].series
       newState[index] = { ...newState[index], ...action.payload }
       return newState
     }
