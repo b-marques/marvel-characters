@@ -14,9 +14,13 @@ E executar `npm install` e `npm start`
 
 <!-- ### ToDO:
 
-Arrumar layout desktop
+Adicionar testes
 
-Adicionar tratamento para lista vazia de séries/personagems.
+Criar pipeline gitlab
+
+Arrumar detalhes series
+
+Arrumar layout desktop
 
 Implementar infinite scroll.
 

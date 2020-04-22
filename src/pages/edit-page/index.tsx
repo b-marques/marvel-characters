@@ -1,12 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useParams, Redirect } from 'react-router-dom'
+import { useHistory, useParams, Redirect } from 'react-router-dom'
 import { RootState } from 'src/store'
 
 import styles from './styles.module.css'
 
 import EditTemplate from 'src/components/templates/edit-template'
-import EditHero from 'src/components/molecules/edit-hero'
+import EditHeader from 'src/components/molecules/edit-header'
 import EditFields from 'src/components/molecules/edit-fields'
 
 type EditPageParams = {
@@ -14,8 +14,12 @@ type EditPageParams = {
 }
 
 const EditPage = () => {
+  const history = useHistory()
   const params = useParams<EditPageParams>()
   const characterId = parseInt(params.characterId)
+  const handleNavigateBack = (id: number, name: string) => {
+    history.push(`/characters/${id}/${name}/details`)
+  }
   const character = useSelector((state: RootState) =>
     state.characters.find(e => e.id === characterId),
   )
@@ -25,7 +29,12 @@ const EditPage = () => {
   return (
     <div className={styles.page}>
       <EditTemplate
-        editHero={<EditHero character={character} />}
+        editHero={
+          <EditHeader
+            character={character}
+            handleNavigateBack={() => handleNavigateBack(character.id, character.name)}
+          />
+        }
         inputFields={<EditFields character={character} />}
       />
     </div>

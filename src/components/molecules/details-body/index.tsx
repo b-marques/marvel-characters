@@ -14,7 +14,7 @@ type DetailsBodyProps = {
 const DetailsBody = (props: DetailsBodyProps) => {
   const { character, isLoading } = props
   return (
-    <dl>
+    <dl className={styles.content}>
       <div className={styles.infoGroup}>
         <Typography
           id="label-nome"

@@ -27,7 +27,7 @@ p {
 html,
 body {
   color: var(--secondary);
-  background: var(--on-primary);
+  background: var(--secondary-variant3);
 
   font-family: var(--base-font-family);
   font-weight: 400;

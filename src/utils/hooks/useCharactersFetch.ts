@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
+import axios from 'axios'
 
 import { fetchCharacters } from 'src/store/character/actions'
 import { Fetch } from 'src/utils/types/fetch'
@@ -15,18 +16,27 @@ export const useCharactersFetch = (search: string, reload: boolean) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
+    let mounted = true
     if (reload) {
       const queryNameStartsWith = search ? `nameStartsWith=${search}` : ''
-      setResult({ status: 'loading' })
-      fetch(`${API_URL}/characters?${queryNameStartsWith}&limit=48&${generateApiKey()}`)
-        .then(response => response.json())
-        .then(response => {
-          dispatch(fetchCharacters(processCharactersApiResult(response.data)))
-          setResult({ status: 'loaded' })
+
+      if (mounted) setResult({ status: 'loading' })
+      axios
+        .get(`${API_URL}characters?${queryNameStartsWith}&limit=48&${generateApiKey()}`)
+        .then((response: any) => {
+          if (mounted) {
+            dispatch(fetchCharacters(processCharactersApiResult(response.data.data)))
+            setResult({ status: 'loaded' })
+          }
         })
-        .catch(error => setResult({ status: 'error', error }))
+        .catch((error: any) => {
+          if (mounted) setResult({ status: 'error', error })
+        })
     } else {
-      setResult({ status: 'loaded' })
+      if (mounted) setResult({ status: 'loaded' })
+    }
+    return () => {
+      mounted = false
     }
   }, [dispatch, search, reload])
 

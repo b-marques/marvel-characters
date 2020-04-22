@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useParams, Redirect } from 'react-router-dom'
+import { useHistory, useParams, Redirect } from 'react-router-dom'
 import { RootState } from 'src/store'
 
 import styles from './styles.module.css'
@@ -10,12 +10,14 @@ import DetailsBody from 'src/components/molecules/details-body'
 import DetailsHeader from 'src/components/molecules/details-header'
 import { useSeriesFetch } from 'src/utils/hooks/useSeriesFetch'
 import Error from 'src/components/atoms/error'
+import { slugify } from 'voca'
 
 type DetailsPageParams = {
   characterId: string
 }
 
 const DetailsPage = () => {
+  const history = useHistory()
   const params = useParams<DetailsPageParams>()
   const characterId = parseInt(params.characterId)
   const character = useSelector((state: RootState) =>
@@ -25,17 +27,37 @@ const DetailsPage = () => {
 
   if (!character) return <Redirect to="/" />
 
+  const handleNavigateBack = () => {
+    history.push('/?reload=false')
+  }
+
+  const handleEdit = (id: number, name: string) => {
+    history.push(`/characters/${id}/${slugify(name)}/edit`)
+  }
+
   return (
     <div className={styles.page}>
       {fetch.status === 'loading' && (
         <DetailsTemplate
-          detailsHeader={<DetailsHeader character={character} />}
+          detailsHeader={
+            <DetailsHeader
+              handleNavigateBack={handleNavigateBack}
+              handleEdit={() => handleEdit(character.id, character.name)}
+              character={character}
+            />
+          }
           detailsBody={<DetailsBody isLoading={true} character={character} />}
         />
       )}
       {fetch.status === 'loaded' && (
         <DetailsTemplate
-          detailsHeader={<DetailsHeader character={character} />}
+          detailsHeader={
+            <DetailsHeader
+              handleNavigateBack={handleNavigateBack}
+              handleEdit={() => handleEdit(character.id, character.name)}
+              character={character}
+            />
+          }
           detailsBody={<DetailsBody isLoading={false} character={character} />}
         />
       )}

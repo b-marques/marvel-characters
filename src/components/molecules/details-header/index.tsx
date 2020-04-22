@@ -1,28 +1,19 @@
 import React from 'react'
-import { slugify } from 'voca'
 import IconButton from '@material-ui/core/IconButton'
 import NavigateBefore from '@material-ui/icons/NavigateBefore'
 import Edit from '@material-ui/icons/Edit'
 
 import styles from './styles.module.css'
-import { useHistory } from 'react-router-dom'
 import { Character } from 'src/store/character/types'
 
 type DetailsHeaderProps = {
   character: Character
+  handleNavigateBack: () => void
+  handleEdit: () => void
 }
 
 const DetailsHeader = (props: DetailsHeaderProps) => {
-  const { character } = props
-  const history = useHistory()
-
-  const handleNavigateBack = () => {
-    history.push('/?reload=false')
-  }
-
-  const handleEdit = () => {
-    history.push(`/characters/${character.id}/${slugify(character.name)}/edit`)
-  }
+  const { character, handleNavigateBack, handleEdit } = props
 
   return (
     <div
@@ -32,12 +23,14 @@ const DetailsHeader = (props: DetailsHeaderProps) => {
       <IconButton
         className={styles.navigateBefore}
         onClick={handleNavigateBack}
+        data-testid="navigate-back-button"
         aria-label="voltar para página inicial">
         <NavigateBefore />
       </IconButton>
       <IconButton
         className={styles.editAttributes}
         onClick={handleEdit}
+        data-testid="edit-button"
         aria-label="editar personagem">
         <Edit />
       </IconButton>

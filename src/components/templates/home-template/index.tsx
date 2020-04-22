@@ -11,7 +11,9 @@ const HomeTemplate = (props: HomeTemplateProps) => {
   return (
     <>
       <div className={styles.navbar} />
-      <section className={styles.content}>{charactersCardList}</section>
+      <section data-testid="cards-container" className={styles.content}>
+        {charactersCardList}
+      </section>
     </>
   )
 }
