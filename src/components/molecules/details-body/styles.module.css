@@ -1,3 +1,11 @@
+.content {
+  width: 100%;
+}
+
+.infoGroup {
+  display: flex;
+}
+
 .detailTitle {
   flex-grow: 1;
   text-align: left;
@@ -15,6 +23,11 @@
   color: var(--secondary-variant2);
 }
 
-.infoGroup {
-  display: flex;
+@media (min-width: 768px) {
+  .content {
+    min-height: 80vh;
+    max-height: 80vh;
+    overflow: hidden;
+    overflow-y: auto;
+  }
 }

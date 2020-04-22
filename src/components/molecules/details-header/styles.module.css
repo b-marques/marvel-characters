@@ -32,3 +32,10 @@
 .editAttributes:hover {
   background-color: var(--on-primary);
 }
+
+@media (min-width: 768px) {
+  .header {
+    margin-bottom: 0;
+    max-width: 50vw;
+  }
+}

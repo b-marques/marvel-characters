@@ -1,0 +1,17 @@
+.content {
+  width: 100%;
+  background: var(--on-primary);
+}
+@media (min-width: 768px) {
+  .content {
+    max-width: 1200px;
+    max-height: 80vh;
+    min-height: 80vh;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: row-reverse;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+    overflow: hidden;
+  }
+}
