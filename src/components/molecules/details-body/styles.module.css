@@ -25,6 +25,7 @@
 
 @media (min-width: 768px) {
   .content {
+    min-width: 32.5vw;
     min-height: 80vh;
     max-height: 80vh;
     overflow: hidden;

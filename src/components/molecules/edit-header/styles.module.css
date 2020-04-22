@@ -1,4 +1,4 @@
-.hero {
+.header {
   min-height: 30vh;
   width: 100%;
   background-color: var(--primary);
@@ -48,4 +48,11 @@
 .text {
   padding: 15px 30px;
   color: var(--secondary-variant2);
+}
+
+@media (min-width: 768px) {
+  .header {
+    margin-bottom: 0;
+    min-width: 32.5vw;
+  }
 }

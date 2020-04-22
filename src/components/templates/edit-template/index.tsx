@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react'
 
+import styles from './styles.module.css'
+
 type EditTemplateProps = {
   editHero: ReactNode
   inputFields: ReactNode
@@ -8,10 +10,10 @@ type EditTemplateProps = {
 const EditTemplate = (props: EditTemplateProps) => {
   const { editHero, inputFields } = props
   return (
-    <>
+    <section className={styles.content}>
       {editHero}
-      <section>{inputFields}</section>
-    </>
+      {inputFields}
+    </section>
   )
 }
 

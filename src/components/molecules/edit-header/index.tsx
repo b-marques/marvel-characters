@@ -14,7 +14,7 @@ type EditHeaderProps = {
 
 const EditHeader = (props: EditHeaderProps) => {
   const { className = '', character, handleNavigateBack } = props
-  const classProps: string = `${styles.hero} ${className}`
+  const classProps: string = `${styles.header} ${className}`
 
   return (
     <div
