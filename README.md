@@ -1,5 +1,15 @@
 # marvel-characters v0.0
 
+Aplicação para visualização de personagens marvel.
+
+### Web Desktop
+
+![Desktop](screenshots/desktop.gif)
+
+### Web Mobile
+
+![Desktop](screenshots/mobile.gif)
+
 ## Execução do projeto
 
 Definir um arquivo com nome `env.local`
